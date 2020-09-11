@@ -32,9 +32,14 @@
 /****** CSS SAO *****/
 
 body{
+  background: linear-gradient(#0c6edf, #f2d4f3);
+  background-repeat: no-repeat;
+  background-size: contain;
   height: 100%;
-  background: linear-gradient(#0c6edf, #f2d4f3) no-repeat;
+  margin: 0;
+  background-attachment: fixed;
 }
+
 
 .container {
   margin: 30px 20px;
