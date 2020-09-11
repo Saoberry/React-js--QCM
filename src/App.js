@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+} from "react-router-dom";
+import { QcmForm } from './components/QCM_form';
+import { Score } from './components/QCM_score';
+import { AddQuestion } from './components/QCM_add_question';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className="container">
+        <div className="row">
+          <div className="col-3">
+              <ul className="block--nav">
+                <li><Link to="/">QCM</Link></li>
+                <li><Link to="/add-question">Ajouter une question</Link></li>
+              </ul>
+          </div>
+          <div className="col-9 mainContent">
+            <Switch>
+              <Route exact path="/" component={QcmForm} />
+              <Route exact path="/score" component={Score} />
+              <Route exact path="/add-question" component={AddQuestion} />
+            </Switch>
+          </div>
+        </div>
     </div>
+    </Router>
   );
 }
 
