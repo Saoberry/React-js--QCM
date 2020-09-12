@@ -88,6 +88,10 @@ export const reducer = (state, action) => {
                         answer : "Non",
                         value : "0"
                     },
+                    choice3: {
+                        answer : "" ,
+                        value : "0"
+                    },
                     result: state.newQcmResult
                 });
             } else {
@@ -102,6 +106,10 @@ export const reducer = (state, action) => {
                         answer : "Non",
                         value : "1"
                     },
+                    choice3: {
+                        answer : "" ,
+                        value : "0"
+                    },
                     result: state.newQcmResult
                 });
             }
@@ -110,7 +118,7 @@ export const reducer = (state, action) => {
 
             return {
                 ...state,
-                redirect: true,
+                redirect: false,
                 qcm_list : qcm_list
             }
         default:

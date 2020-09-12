@@ -77,9 +77,7 @@ export const QcmForm = (props) => {
     } else {
         return (
             <Redirect
-              to={{
-                pathname: "/score"
-              }}
+              to={{ pathname: "/score"}}
             />
           )
     }

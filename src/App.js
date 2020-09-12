@@ -24,8 +24,9 @@ function App() {
           <div className="col-9 mainContent">
             <Switch>
               <Route exact path="/" component={QcmForm} />
-              <Route exact path="/score" component={Score} />
+              <Route exact path="/home" component={QcmForm} />
               <Route exact path="/add-question" component={AddQuestion} />
+              <Route exact path="/score" component={Score} />
             </Switch>
           </div>
         </div>
