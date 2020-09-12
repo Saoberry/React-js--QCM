@@ -20,10 +20,10 @@ export const QcmForm = (props) => {
 
         if(value === "1"){
             answers_user.push(name);
-            dispatch({ type : "ANSWER_BONUS", answers_user : answers_user });
+            dispatch({ type : "ANSWERS_USER", answers_user : answers_user });
         }else{
             answers_user.push(0);
-            dispatch({ type : "ANSWER_BONUS", answers_user : answers_user });
+            dispatch({ type : "ANSWERS_USER", answers_user : answers_user });
         }
     }
 

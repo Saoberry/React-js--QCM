@@ -7,9 +7,11 @@ export const initialState = {
     email: '',
     answers_user : [],
     results: [],
-    newQuestion: '',
-    newAnswer: '',
-    sao: '',
+    newQcm: {},
+    newQcmQuestion: '',
+    newQcmAnswer: '',
+    newQcmResult: '',
+    score: '',
     redirect: false
 };
 // PAS TOUCHE !!!!!!! (fin)
@@ -24,10 +26,15 @@ export const reducer = (state, action) => {
                 ...state,
                 email: action.email
             }
-        case 'ANSWER_BONUS':
+        case 'ANSWERS_USER':
             const answers_user = [...state.answers_user];
+            let score = state.score;
+            const goodAnswers = answers_user.filter(answer => answer !== 0);
+            score = goodAnswers.length;
+
             return {
                 ...state,
+                score: score,
                 answers_user: answers_user
             }
         case 'SUBMIT':
@@ -48,30 +55,63 @@ export const reducer = (state, action) => {
                 redirect: true,
                 results : results
             }
-        case 'NEW_QUESTION':
+        case 'NEW_QCM_QUESTION':
 
             return {
                 ...state,
-                newQuestion: action.newQuestion
+                newQcmQuestion : action.newQcmQuestion
+                
             }
-        case 'NEW_ANSWER':
-
+        case 'NEW_QCM_ANSWER':
             return {
                 ...state,
-                newAnswer: action.newAnswer
+                newQcmAnswer: action.newQcmAnswer
+            }
+        case 'NEW_QCM_RESULT':
+            return {
+                ...state,
+                newQcmResult: action.newQcmResult
             }
         case 'SUBMIT_QUESTION':
-            const new_answers = [...state.answers];
-            const new_qcm_list = [...state.qcm_list];
-            const new_qcm_list_lgt = (new_answers.length + 1);
-            new_answers.push(Number(state.newAnswer));
-            new_qcm_list.push({id: 'id' + new_qcm_list_lgt, question: state.newQuestion, reponse1: 'Oui', reponse2: 'Non', reponse3: ''})
-            console.log(new_answers, state.qcm_list);
+            let qcm_list = [...state.qcm_list];
+            const identifiant = state.qcm_list.length + 1;
+
+            if(state.newQcmAnswer === '1'){
+                qcm_list.push({
+                    id : identifiant, 
+                    question : state.newQcmQuestion,
+                    choice1: {
+                        answer : "Oui" ,
+                        value : "1"
+                    },
+                    choice2: {
+                        answer : "Non",
+                        value : "0"
+                    },
+                    result: state.newQcmResult
+                });
+            } else {
+                qcm_list.push({
+                    id : identifiant, 
+                    question : state.newQcmQuestion,
+                    choice1: {
+                        answer : "Oui" ,
+                        value : "0"
+                    },
+                    choice2: {
+                        answer : "Non",
+                        value : "1"
+                    },
+                    result: state.newQcmResult
+                });
+            }
+            
+            console.log('qcm list', qcm_list);
 
             return {
                 ...state,
-                answers: new_answers,
-                qcm_list: new_qcm_list
+                redirect: true,
+                qcm_list : qcm_list
             }
         default:
             return state;

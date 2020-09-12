@@ -87,11 +87,11 @@ body{
   text-transform: uppercase;
 }
 
-.new-question label{
+/* .new-question label{
   display: block;
-}
+} */
 
-.new-question input[type=text]{
+.new-question textarea{
   width: 100%;
 }
 

@@ -1,7 +1,7 @@
 
 const POSTS = [
     {   
-        id : '1',
+        id : 1,
         question: "React est-il un framework ?", 
         choice1: {
             answer : "Oui" ,
@@ -18,7 +18,7 @@ const POSTS = [
         result: "React est un framework"
     },
     { 
-        id : '2',
+        id : 2,
         question: "JSX c'est quoi ?", 
         choice1: {
             answer : "JSX est un langage compilé" ,
@@ -35,7 +35,7 @@ const POSTS = [
         result: "JSX est un sur-ensemble développé par Facebook"
     },
     { 
-        id : '3',
+        id : 3,
         question: "React est-il un framework ?", 
         choice1: {
             answer : "MMV" ,
@@ -51,6 +51,6 @@ const POSTS = [
         },
         result: "React est un MVC"
     },
-  ];
+  ]; 
 
   export default POSTS
