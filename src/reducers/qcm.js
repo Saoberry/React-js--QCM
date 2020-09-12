@@ -9,6 +9,7 @@ export const initialState = {
     results: [],
     newQuestion: '',
     newAnswer: '',
+    sao: '',
     redirect: false
 };
 // PAS TOUCHE !!!!!!! (fin)
