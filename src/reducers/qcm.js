@@ -1,7 +1,6 @@
 import { createContext } from 'react';
 import POSTS from '../data_qcm';
 
-//  PAS TOUCHE !!!!!!! (debut)
 export const initialState = {
     qcm_list : POSTS,
     email: '',
@@ -12,9 +11,9 @@ export const initialState = {
     newQcmAnswer: '',
     newQcmResult: '',
     score: '',
-    redirect: false
+    redirect_home: false,
+    redirect_add: false
 };
-// PAS TOUCHE !!!!!!! (fin)
 
 export const QcmContext = createContext({})
 
@@ -26,7 +25,18 @@ export const reducer = (state, action) => {
                 score: '',
                 answers_user : [],
                 results: [],
-                email: ''
+                email: '',
+                newQcmQuestion: '',
+                newQcmAnswer: '',
+                newQcmResult: '',
+                redirect_home: false,
+                redirect_add: false
+            }
+        case 'INIT_REDIRECT':
+            return {
+                ...state,
+                redirect_home: false,
+                redirect_add: false
             }
         case 'EMAIL':
 
@@ -62,7 +72,7 @@ export const reducer = (state, action) => {
             }
             return {
                 ...state,
-                redirect: true,
+                redirect_home: true,
                 results : results
             }
         case 'NEW_QCM_QUESTION':
@@ -126,7 +136,7 @@ export const reducer = (state, action) => {
             
             return {
                 ...state,
-                redirect: false,
+                redirect_add: true,
                 qcm_list : qcm_list
             }
         default:

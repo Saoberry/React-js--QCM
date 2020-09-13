@@ -7,16 +7,16 @@ import {
 
 const QcmForm = (props) => {
     const [state, dispatch] = useContext(QcmContext);
-    const { email, redirect, message } = state;
+    const { email, redirect_home, message } = state;
+
     useEffect(() => {
         dispatch({ type : "INIT"});
-     }, [dispatch])
+    }, [dispatch])
 
     const handleChange = e => {
         const { value, name } = e.target;
         dispatch({ type : "EMAIL", email : value });
     }
-
     const handleAnswer = e => {
         const { value, name } = e.target;
         const { answers_user } = state;
@@ -34,7 +34,7 @@ const QcmForm = (props) => {
         e.preventDefault();
         dispatch({ type : "SUBMIT" });
     }
-    if(redirect === false){
+    if(redirect_home === false){
         const { qcm_list } = state;
         return (
             <form className="QCM_Form" onSubmit={handleSubmit}>
@@ -70,20 +70,17 @@ const QcmForm = (props) => {
                         }
                     </div>)
                 )}
-
                 <button className="btn btn-primary">Valider</button>
             </form>
         )
-
-    } else {
+    } 
+    else {
         return (
             <Redirect
               to={{ pathname: "/score"}}
             />
           )
     }
-
-
 }
 
 export default QcmForm;

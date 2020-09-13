@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { QcmContext } from '../reducers/qcm';
 
 const Score = (props) => {
-    const [state] = useContext(QcmContext);
+    const [state, dispatch] = useContext(QcmContext);
     const { results, score } = state;
+
+    useEffect(() => {
+        dispatch({ type : "INIT_REDIRECT"});
+    }, [dispatch])
 
     return(
         <div className="score_content">
