@@ -5,12 +5,12 @@ import {
   } from "react-router-dom";
   
 
-export const QcmForm = (props) => {
+const QcmForm = (props) => {
     const [state, dispatch] = useContext(QcmContext);
     const { email, redirect, message } = state;
     useEffect(() => {
         dispatch({ type : "INIT"});
-     }, [])
+     }, [dispatch])
 
     const handleChange = e => {
         const { value, name } = e.target;
@@ -37,44 +37,42 @@ export const QcmForm = (props) => {
     if(redirect === false){
         const { qcm_list } = state;
         return (
-            <>
-                <form className="QCM_Form" onSubmit={handleSubmit}>
-                    <h1>QCM React</h1>
+            <form className="QCM_Form" onSubmit={handleSubmit}>
+                <h1>QCM React</h1>
 
-                    <p>Voici un QCM sur React répondez aux questions ci-dessous, pensez à laisser votre email, champ obligatoire (*) :</p>
+                <p>Voici un QCM sur React répondez aux questions ci-dessous, pensez à laisser votre email, champ obligatoire (*) :</p>
 
-                    <div className="form-group">
-                        <label>Email* : </label>
-                        <input type="email" size="1" name="email" value={email} onChange={handleChange} className="form-control" required />
-                    </div>
+                <div className="form-group">
+                    <label>Email* : </label>
+                    <input type="email" size="1" name="email" value={email} onChange={handleChange} className="form-control" required />
+                </div>
 
-                    {message ? <p className="alert alert-danger">{message}</p> : null}
+                {message ? <p className="alert alert-danger">{message}</p> : null}
 
-                    {qcm_list.map((qcm, i) => 
+                {qcm_list.map((qcm, i) => 
 
-                        (<div className="form-group" key={i}>
-                            <h2>{qcm.question}</h2>
-                            <p>Répondez en choisissant une seule et bonne réponse ci-dessous :</p>
+                    (<div className="form-group" key={i}>
+                        <h2>{qcm.question}</h2>
+                        <p>Répondez en choisissant une seule et bonne réponse ci-dessous :</p>
+                        <div className="form-check">
+                            <input type="radio" name={qcm.id} value={qcm.choice1.value} onClick={handleAnswer} className="form-check-input" />
+                            <label className="form-check-label">{qcm.choice1.answer}</label>
+                        </div>
+                        <div className="form-check">
+                            <input type="radio" name={qcm.id} value={qcm.choice2.value} onClick={handleAnswer} className="form-check-input" />
+                            <label className="form-check-label">{qcm.choice2.answer}</label>
+                        </div>
+                        {qcm.choice3.answer !== "" ? 
                             <div className="form-check">
-                                <input type="radio" name={qcm.id} value={qcm.choice1.value} onClick={handleAnswer} className="form-check-input" />
-                                <label className="form-check-label">{qcm.choice1.answer}</label>
-                            </div>
-                            <div className="form-check">
-                                <input type="radio" name={qcm.id} value={qcm.choice2.value} onClick={handleAnswer} className="form-check-input" />
-                                <label className="form-check-label">{qcm.choice2.answer}</label>
-                            </div>
-                            {qcm.choice3.answer !== "" ? 
-                                <div className="form-check">
-                                <input type="radio" name={qcm.id} value={qcm.choice3.value} onClick={handleAnswer} className="form-check-input" />
-                                <label className="form-check-label">{qcm.choice3.answer}</label>
-                                </div> : null
-                            }
-                        </div>)
-                    )}
-    
-                    <button className="btn btn-primary">Valider</button>
-                </form>
-            </>
+                            <input type="radio" name={qcm.id} value={qcm.choice3.value} onClick={handleAnswer} className="form-check-input" />
+                            <label className="form-check-label">{qcm.choice3.answer}</label>
+                            </div> : null
+                        }
+                    </div>)
+                )}
+
+                <button className="btn btn-primary">Valider</button>
+            </form>
         )
 
     } else {
@@ -87,3 +85,5 @@ export const QcmForm = (props) => {
 
 
 }
+
+export default QcmForm;

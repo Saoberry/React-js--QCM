@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(#0c6edf, #f2d4f3);
+    background-color: #81edd8;
     background-repeat: no-repeat;
     background-size: contain;
     height: 100%;
@@ -7,32 +7,62 @@ body{
     background-attachment: fixed;
 }
 
-
 .container {
-    margin: 30px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.block--nav{
-    padding: 20px;
-    border-radius: 5px;
+.main_content{
+    padding: 4px;
+    background: #F2F2F2;
+}
+
+.score_content{
     background-color: #fff;
-    li{
-        list-style: none;
-        margin-bottom: 10px;
+    margin: 0;
+    padding: 30px;
+    p{
+        margin: 0;
+        padding-bottom: 10px;
     }
 }
 
-.mainContent{
-    padding: 20px 50px;
-    border-radius: 5px;
-    background-color: #fff;
+/**** BLOC NAVIGATION ****/
+.block--nav{
+    list-style: none;
+    padding: 4px;
+    margin: 0;
+    background: #F2F2F2;
+    .mv-item {
+        display: block;
+        a {
+            display: block;
+            margin: 1px 0; 
+            padding: 8px 20px; 
+            color: #666;
+            background: #FFF;
+            text-decoration: none; 
+            -webkit-transition: all .3s; 
+            -moz-transition: all .3s; 
+            transition: all .3s; 
+            &:hover, &:focus{
+                background: #ffb2cb;
+                color: #FFF;
+                padding-left: 30px;
+            }
+        }
+    }
 }
 
+/**** FORMULAIRE QCM ****/
 .QCM_Form {
+    background-color: #fff;
+    margin: 0;
+    padding: 10px 20px;
     h1{
-        color: #0c6edf;
+        color: #54e7ca;
         text-align: center;
-        margin: 10px auto 40px auto;
+        margin: 0 auto 40px auto;
     }
 
     .form-group{
@@ -54,9 +84,15 @@ body{
     }
 }
   
-  
-.new-question{
+/**** FORMULAIRE AJOUT QUESTION ****/
+.Add_Question_Form{
+    background-color: #fff;
+    margin: 0;
+    padding: 10px 20px;
     textarea{
+        width: 100%;
+    }
+    input[type="text"]{
         width: 100%;
     }
 }
