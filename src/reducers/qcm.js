@@ -20,11 +20,21 @@ export const QcmContext = createContext({})
 
 export const reducer = (state, action) => {
     switch (action.type) {
+        case 'INIT':
+            return {
+                ...state,
+                score: '',
+                answers_user : [],
+                results: [],
+                email: ''
+            }
         case 'EMAIL':
 
             return {
                 ...state,
-                email: action.email
+                email: action.email,
+                score: '',
+                results: []
             }
         case 'ANSWERS_USER':
             const answers_user = [...state.answers_user];
@@ -42,7 +52,7 @@ export const reducer = (state, action) => {
             let resultsText;
 
             for(let i = 0; i < state.qcm_list.length; i++){
-                if(state.answers_user[i] === state.qcm_list[i].id) {
+                if(state.answers_user[i] == state.qcm_list[i].id) {
                     resultsText = "Question " + (i+1) + " : Bravo ! " + state.qcm_list[i].result;
                     results.push(resultsText);
                 } else {
@@ -114,8 +124,6 @@ export const reducer = (state, action) => {
                 });
             }
             
-            console.log('qcm list', qcm_list);
-
             return {
                 ...state,
                 redirect: false,

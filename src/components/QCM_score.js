@@ -7,7 +7,7 @@ export const Score = (props) => {
 
     return(
         <>
-        <p><strong>Votre score est de {score} sur 3</strong></p>
+        <p><strong>Votre score est de {score} sur {results.length}</strong></p>
         {results.map((res, i) => <p key={i}>{res}</p>)}
         </>
     )

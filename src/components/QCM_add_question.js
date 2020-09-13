@@ -8,7 +8,7 @@ export const AddQuestion = (props) => {
 
     const handleChange = e => {
         const { value, name } = e.target;
-        console.log(name)
+        
         if(name === 'newQcmQuestion'){
             dispatch({ type : "NEW_QCM_QUESTION", newQcmQuestion : value });
         }

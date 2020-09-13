@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { QcmContext } from '../reducers/qcm';
 import {
     Redirect
@@ -8,6 +8,9 @@ import {
 export const QcmForm = (props) => {
     const [state, dispatch] = useContext(QcmContext);
     const { email, redirect, message } = state;
+    useEffect(() => {
+        dispatch({ type : "INIT"});
+     }, [])
 
     const handleChange = e => {
         const { value, name } = e.target;
