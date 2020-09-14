@@ -2,6 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     margin: 30px 2%;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 `
 
 export const BlocLeft = styled.div`

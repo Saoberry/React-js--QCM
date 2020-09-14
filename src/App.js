@@ -15,19 +15,16 @@ function App() {
   return (
     <Router>
     <Container>
-        <div className="row">
-          
-          <BlocLeft>
-            <Nav />
-          </BlocLeft>
-          <BlocRight>
-            <Switch>
-              <Route path="/add" component={AddQuestion} />
-              <Route path="/score" component={Score} />
-              <Route path="/" component={QcmForm} />
-            </Switch>
-          </BlocRight>
-        </div>
+      <BlocLeft>
+        <Nav />
+      </BlocLeft>
+      <BlocRight>
+        <Switch>
+          <Route path="/add" component={AddQuestion} />
+          <Route path="/score" component={Score} />
+          <Route path="/" component={QcmForm} />
+        </Switch>
+      </BlocRight>
     </Container>
     </Router>
   );
