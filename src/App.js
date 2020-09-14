@@ -9,24 +9,26 @@ import QcmForm from './components/QCM_form';
 import Score from './components/QCM_score';
 import AddQuestion from './components/QCM_add_question';
 import Nav from './components/Nav';
+import { BlocLeft, BlocRight, Container } from './styled/styled';
 
 function App() {
   return (
     <Router>
-    <div className="container">
+    <Container>
         <div className="row">
-          <div className="col-3">
+          
+          <BlocLeft>
             <Nav />
-          </div>
-          <div className="col-9 main_content">
+          </BlocLeft>
+          <BlocRight>
             <Switch>
               <Route path="/add" component={AddQuestion} />
               <Route path="/score" component={Score} />
               <Route path="/" component={QcmForm} />
             </Switch>
-          </div>
+          </BlocRight>
         </div>
-    </div>
+    </Container>
     </Router>
   );
 }

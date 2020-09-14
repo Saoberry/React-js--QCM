@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { QcmContext } from '../reducers/qcm';
-import {
-    Redirect
-  } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { BtnSubmit } from '../styled/styled';
   
 
 const QcmForm = (props) => {
@@ -70,7 +69,7 @@ const QcmForm = (props) => {
                         }
                     </div>)
                 )}
-                <button className="btn btn-primary">Valider</button>
+                <BtnSubmit>Valider</BtnSubmit>
             </form>
         )
     } 

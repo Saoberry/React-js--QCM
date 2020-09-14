@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { QcmContext } from '../reducers/qcm';
 import { Redirect } from "react-router-dom";
+import { BtnSubmit } from '../styled/styled';
 
 const AddQuestion = (props) => {
     const [state, dispatch] = useContext(QcmContext);
@@ -47,7 +48,7 @@ const AddQuestion = (props) => {
                     <input type="text" name="newQcmResult" value={newQcmResult} onChange={handleChange} />
                 </div>
                 </div>
-                <button className="btn btn-primary">Valider</button>
+                <BtnSubmit>Valider</BtnSubmit>
             </form>
         )
     } 

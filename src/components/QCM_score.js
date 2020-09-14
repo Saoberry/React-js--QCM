@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { QcmContext } from '../reducers/qcm';
+import { ScoreContent } from '../styled/styled';
 
 const Score = (props) => {
     const [state, dispatch] = useContext(QcmContext);
@@ -10,10 +11,10 @@ const Score = (props) => {
     }, [dispatch])
 
     return(
-        <div className="score_content">
+        <ScoreContent>
             <p><strong>Votre score est de {score} sur {results.length}</strong></p>
             {results.map((res, i) => <p key={i}>{res}</p>)}
-        </div>
+        </ScoreContent>
     )
 
 }
